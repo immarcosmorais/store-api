@@ -31,6 +31,11 @@ app.use("/product", productRouter);
 app.use("/sale", saleRouter);
 app.use("/supplier", supplierRouter);
 
+app.use((err, req, res, next) => {
+  logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
+  res.status(400).send({ error: err.message });
+});
+
 app.listen(3000, async () => {
   logger.info("API Started!");
 });
