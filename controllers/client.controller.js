@@ -15,7 +15,7 @@ async function create(req, res, next) {
       );
     }
     res.send(await clientService.create(client));
-    loggers.info(`POST /client - ${JSON.stringify(client)}`);
+    logger.info(`POST /client - ${JSON.stringify(client)}`);
   } catch (err) {
     next(err);
   }
