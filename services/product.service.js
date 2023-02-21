@@ -27,7 +27,7 @@ async function remove(id) {
 }
 
 async function update(product, id) {
-  if (await supplierExist(product.supplier_id)) {
+  if (await supplierExist(product.id)) {
     return await productRepository.update(product, id);
   }
 }
